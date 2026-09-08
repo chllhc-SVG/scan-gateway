@@ -1,0 +1,15 @@
+services:
+  scan-gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: scan-gateway:dev
+    container_name: scan-gateway
+    ports:
+      # 宿主机也绑 0.0.0.0，保证手机通过局域网 IP 能打开登记页
+      - "0.0.0.0:3101:3101"
+    environment:
+      SCAN_GATEWAY_HOST: 0.0.0.0
+      SCAN_GATEWAY_PORT: 3101
+      SCAN_SESSION_TTL_MS: 300000
+    restart: unless-stopped

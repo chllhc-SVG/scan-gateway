@@ -1,0 +1,19 @@
+{
+  "name": "scan-gateway",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "独立扫码网关：为数字人共享终端提供小程序码/二维码扫码登记能力，与 MCP 平台完全解耦",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "docker:dev": "docker compose up --build",
+    "docker:up": "docker compose up -d --build",
+    "docker:down": "docker compose down",
+    "docker:logs": "docker compose logs -f"
+  },
+  "dependencies": {
+    "qrcode": "^1.5.4"
+  }
+}
